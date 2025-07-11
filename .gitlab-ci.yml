@@ -1,0 +1,9 @@
+stages:
+  - deploy
+
+deploy_to_render:
+  stage: deploy
+  script:
+    - curl -X POST https://api.render.com/deploy/srv-d1o9fqffte5s73b15cag?key=uCANybWCrTU
+  only:
+    - main
