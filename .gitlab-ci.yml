@@ -4,6 +4,14 @@ stages:
 deploy_to_render:
   stage: deploy
   script:
+    - echo "Хуканы Render ге жібер"
     - curl -X POST https://api.render.com/deploy/srv-d1o9fqffte5s73b15cag?key=uCANybWCrTU
+    - echo "Render активирован"
+    - curl -s -X POST https://api.telegram.org/bot$7053741806:AAG0PkhczGkFGSyAwgbFT48FR5C2w0ayw-Y/sendMessage \
+
+        -d "chat_id=${CHAT_ID}" \
+        -d "text=🔥 CI-деплой прошёл успешно!\nКоммит: $CI_COMMIT_SHORT_SHA"
+
+
   only:
     - main
